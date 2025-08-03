@@ -109,7 +109,7 @@ DATABASES = {
         'NAME': 'hydroverde_db',
         'USER': 'root',
         'PASSWORD': '',
-        'HOST': 'localhost',
+        'HOST': 'https://hello-fiaz.onrender.com/',
         'PORT': '3306',
     },
     'sqlite': {
