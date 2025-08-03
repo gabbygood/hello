@@ -29,7 +29,8 @@ ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
     '*',  # <-- Add your ngrok subdomain here
-    '172.22.5.255'
+    '172.22.5.255',
+    'hello-fiaz.onrender.com'
 ]
 
 
