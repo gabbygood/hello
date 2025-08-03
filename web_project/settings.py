@@ -124,7 +124,7 @@ pymysql.install_as_MySQLdb()
 
 DATABASES = {
     'default': dj_database_url.config(
-        default='mysql://root:@hostname:3306/hydroverde_db',
+        default='mysql://root:@https://hello-fiaz.onrender.com:3306/hydroverde_db',
         conn_max_age=600,
         engine='django.db.backends.mysql',
     )
