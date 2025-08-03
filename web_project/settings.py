@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import pymysql
+import dj_database_url
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -103,21 +106,29 @@ AUTH_USER_MODEL = 'authapi.User'
 
 # settings.py
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'hydroverde_db',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': 'https://hello-fiaz.onrender.com/',
-        'PORT': '3306',
-    },
-    'sqlite': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'hydroverde_db',
+#         'USER': 'root',
+#         'PASSWORD': '',
+#         'HOST': 'localhost',
+#         'PORT': '3306',
+#     },
+#     'sqlite': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+pymysql.install_as_MySQLdb()
 
+DATABASES = {
+    'default': dj_database_url.config(
+        default='mysql://root:@hostname:3306/hydroverde_db',
+        conn_max_age=600,
+        engine='django.db.backends.mysql',
+    )
+}
 
 
 # Password validation
